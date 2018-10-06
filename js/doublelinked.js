@@ -77,13 +77,55 @@ class doubleLinkedList {
 			nextOne.prev = pointer;
 		}
 	}
-	print() {
-		let a = this.front;
-		while (this.front != null) {
-			console.log(this.front.value);
-			this.front = this.front.next;
+	swap(i, j) {
+		if (i > this.length - 1 || j > this.length - 1) {
+			console.log('out of boundary');
+		} else if (i == 0 && j == this.length - 1) {
+			let second = this.front.next;
+			let first = this.front.value;
+			let lastSecond = this.rear.prev;
+			this.front.value = this.rear.value;
+			this.rear.value = first;
+		} else if (i == 0) {
+			let pointer = this.front;
+			while (j != 0) {
+				pointer = pointer.next;
+				j--;
+			}
+			let headVal = this.front.value;
+			this.front.value = pointer.value;
+			pointer.value = headVal;
+		} else if (j == this.length - 1) {
+			let pointer = this.front;
+			while (i != 0) {
+				pointer = pointer.next;
+				i--;
+			}
+			let endVal = this.rear.value;
+			this.rear.value = pointer.value;
+			pointer.value = endVal;
+		} else {
+			let firstPt = this.front;
+			let secondPt = this.front;
+			while (i != 0) {
+				firstPt = firstPt.next;
+				i--;
+			}
+			while (j != 0) {
+				secondPt = secondPt.next;
+				j--;
+			}
+			let firstVal = firstPt.value;
+			firstPt.value = secondPt.value;
+			secondPt.value = firstVal;
 		}
-		this.front = a;
+	}
+	print() {
+		let node = this.front;
+		while (node != null) {
+			console.log(node.value);
+			node = node.next;
+		}
 	}
 }
 
@@ -98,6 +140,7 @@ list.add(7);
 list.add(8);
 
 
-list.insertAt(3, 111);
+// list.insertAt(3, 111);
+list.swap(1,7);
 list.print();
-//console.log(list);
+// console.log(list);
