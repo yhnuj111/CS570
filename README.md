@@ -1,3 +1,4 @@
-"# CS570" 
-"# CS570" 
-"# CS570" 
+#
+  Exercise for linked list
+
+#
