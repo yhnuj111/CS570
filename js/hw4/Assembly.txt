@@ -1,0 +1,20 @@
+*-----------------------------------------------------------
+* Title      : Hello world
+* Written by : Zhehang Xu
+* Date       : 2018/10/19
+* Description: Assembly code
+*-----------------------------------------------------------
+    ORG    $1000
+START:                  ; first instruction of program
+
+* Put program code here
+        LEA      MESSAGE, A1
+        MOVE.B   #14,D0
+        TRAP     #15
+MESSAGE DC.B     'Hello world!',0 
+    SIMHALT             ; halt simulator
+
+* Put variables and constants here
+
+    END    START        ; last line of source
+
